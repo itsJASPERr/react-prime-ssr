@@ -1,6 +1,10 @@
 import express from 'express';
 import { render } from '@jaredpalmer/after';
 import routes from './app/routes';
+import Document from './Document';
+import globalStyling from './app/styles/global';
+
+globalStyling();
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
@@ -15,6 +19,7 @@ server
         res,
         routes,
         assets,
+        document: Document,
         // Anything else you add here will be made available
         // within getInitialProps(ctx)
         // e.g a redux store...

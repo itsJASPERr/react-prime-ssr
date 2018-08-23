@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/html-has-lang */
 import React from 'react';
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet } from 'styled-components';
 import { AfterRoot, AfterData } from '@jaredpalmer/after';
 
 export default class Document extends React.Component {
@@ -11,7 +12,7 @@ export default class Document extends React.Component {
     return { assets, data, ...page, styleTags };
   }
 
- render() {
+  render() {
     const { helmet, assets, data, styleTags } = this.props;
     // get attributes from React Helmet
     const htmlAttrs = helmet.htmlAttributes.toComponent();
@@ -31,7 +32,7 @@ export default class Document extends React.Component {
         </head>
         <body {...bodyAttrs}>
           <AfterRoot />
-          <AfterData data={data}/>
+          <AfterData data={data} />
           <script
             type="text/javascript"
             src={assets.client.js}

@@ -4,6 +4,7 @@ import logo from '../../../static/vector/react.svg';
 import { Container, Header, Intro, Logo } from './styled';
 
 class Home extends Component {
+  // eslint-disable-next-line no-unused-vars - These parameters are given to the method and shown as example
   static async getInitialProps({ req, res, match, history, location, ...ctx }) {
     return { whatever: 'stuff' };
   }
@@ -19,7 +20,7 @@ class Home extends Component {
           To get started, edit <code>src/Home.js</code> or{' '}
           <code>src/About.js</code>and save to reload.
         </Intro>
-        <Link to="/about">About -></Link>
+        <Link to="/about">About</Link>
       </Container>
     );
   }

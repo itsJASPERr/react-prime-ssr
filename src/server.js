@@ -6,6 +6,7 @@ import globalStyling from './app/styles/global';
 
 globalStyling();
 
+// eslint-disable-next-line import/no-dynamic-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();

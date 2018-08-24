@@ -1,14 +1,14 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunk from 'redux-thunk';
 import appReducers from './ducks';
 
 // Add Redux-Thunk
-const middleware = applyMiddleware(thunk);
+let middleware = applyMiddleware(thunk);
 
 // Add Redux Devtools
-// if (__DEV__ && __CLIENT__ && typeof window.devToolsExtension === 'function') {
-//   middleware = compose(middleware, window.devToolsExtension());
-// }
+if (__DEV__ && __CLIENT__ && typeof window.devToolsExtension === 'function') {
+  middleware = compose(middleware, window.devToolsExtension());
+}
 
 const configureStore = (initialState) => {
   const store = createStore(

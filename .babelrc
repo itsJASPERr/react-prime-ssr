@@ -1,0 +1,28 @@
+{
+  "presets": [
+    "razzle/babel",
+    "stage-0"
+  ],
+  "plugins": [
+    "lodash",
+    "inline-react-svg",
+    ["babel-plugin-styled-components", {
+        "ssr": true
+    }],
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "app": "./src/app",
+        "common": "./src/app/components/common",
+        "config": "./src/config",
+        "ducks": "./src/app/ducks",
+        "images": "./src/app/static/images",
+        "modules": "./src/app/components/modules",
+        "pages": "./src/app/pages",
+        "server": "./src/server",
+        "services": "./src/app/services",
+        "vectors": "./src/app/static/vectors"
+      }
+    }]
+  ]
+}

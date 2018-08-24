@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../static/vector/react.svg';
+import logo from 'vectors/react.svg';
 import { Container, Header, Intro, Logo } from './styled';
 
 class Home extends Component {
-  // eslint-disable-next-line no-unused-vars - These parameters are given to the method and shown as example
+  // - These parameters are given to the method and shown as example
+  // eslint-disable-next-line no-unused-vars
   static async getInitialProps({ req, res, match, history, location, ...ctx }) {
     return { whatever: 'stuff' };
   }

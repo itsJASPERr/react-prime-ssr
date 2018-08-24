@@ -1,8 +1,11 @@
 import express from 'express';
 import { render } from '@jaredpalmer/after';
-import routes from './app/routes';
+import { renderToString } from 'react-dom/server';
+import { Provider } from 'react-redux';
+import createStore from 'app/store';
+import routes from 'app/routes';
+import globalStyling from 'styles/global';
 import Document from './Document';
-import globalStyling from './app/styles/global';
 
 globalStyling();
 
@@ -14,6 +17,17 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
   .get('/*', async (req, res) => {
+    // Create a new Redux store instance
+    const initialStore = {};
+    const store = createStore(initialStore);
+
+    // Render the component to a string
+    const markup = renderToString(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    
     try {
       const html = await render({
         req,

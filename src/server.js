@@ -1,10 +1,11 @@
-import express from 'express';
-import { render } from '@jaredpalmer/after';
+import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
-import createStore from 'app/store';
+import express from 'express';
+import { render } from '@jaredpalmer/after';
 import routes from 'app/routes';
-import globalStyling from 'styles/global';
+import globalStyling from 'app/styles/global';
+import createStore from 'app/store';
 import Document from './Document';
 
 globalStyling();
@@ -21,13 +22,17 @@ server
     const initialStore = {};
     const store = createStore(initialStore);
 
-    // Render the component to a string
-    const markup = renderToString(
-      <Provider store={store}>
-        <App />
-      </Provider>
-    );
-    
+    // Grab the initial state from our Redux store
+    const serverState = store.getState();
+
+    const customRenderer = (node) => {
+      const App = <Provider store={store}>{node}</Provider>;
+      return {
+        html: renderToString(App),
+        serverState,
+      };
+    };
+
     try {
       const html = await render({
         req,
@@ -35,10 +40,7 @@ server
         routes,
         assets,
         document: Document,
-        // Anything else you add here will be made available
-        // within getInitialProps(ctx)
-        // e.g a redux store...
-        customThing: 'thing',
+        customRenderer,
       });
       res.send(html);
     } catch (error) {

@@ -1,20 +1,27 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import * as appReducers from 'app/ducks';
+import appReducers from './ducks';
 
-const reducers = combineReducers({ ...appReducers });
+// Add Redux-Thunk
+const middleware = applyMiddleware(thunk);
 
-const createStore = initialState => {
+// Add Redux Devtools
+// if (__DEV__ && __CLIENT__ && typeof window.devToolsExtension === 'function') {
+//   middleware = compose(middleware, window.devToolsExtension());
+// }
+
+const configureStore = (initialState) => {
   const store = createStore(
-    reducers,
+    appReducers,
     initialState,
-    applyMiddleware(thunk)
+    middleware,
   );
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('../reducers', () => {
-      const nextRootReducer = combineReducers({ ...require('app/ducks').default });
+    module.hot.accept('./ducks', () => {
+      // eslint-disable-next-line global-require
+      const nextRootReducer = combineReducers({ ...require('./ducks').default });
       store.replaceReducer(nextRootReducer);
     });
   }
@@ -22,4 +29,4 @@ const createStore = initialState => {
   return store;
 };
 
-export default createStore;
+export default configureStore;

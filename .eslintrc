@@ -44,7 +44,7 @@
     "jsx-a11y/anchor-is-valid": 0,
     "jsx-a11y/label-has-associated-control": "off",
     "consistent-return": 0,
-    "indent": ["error", 2, { "SwitchCase": 1 }],
+    "ter-indent": [true, 2, { "SwitchCase": 1 }],
     "max-len": 0,
     "no-console": [2, { "allow": ["info", "error"]}],
     "no-nested-ternary": 0,

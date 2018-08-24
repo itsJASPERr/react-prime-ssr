@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import LogoIcon from 'vectors/react.svg';
 
 const logoSpin = keyframes`
   from {
@@ -20,7 +21,7 @@ export const Header = styled.div`
   color: white;
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(LogoIcon)`
   animation: ${logoSpin} infinite 20s linear;
   height: 80px;
 `;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import logo from 'vectors/react.svg';
 import { Container, Header, Intro, Logo } from './styled';
 
 class Home extends Component {
@@ -14,7 +13,7 @@ class Home extends Component {
     return (
       <Container>
         <Header>
-          <Logo src={logo} alt="logo" />
+          <Logo />
           <h2>Welcome to After.js</h2>
         </Header>
         <Intro>

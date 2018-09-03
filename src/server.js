@@ -1,11 +1,13 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
 import express from 'express';
 import { render } from '@jaredpalmer/after';
 import routes from 'app/routes';
 import globalStyling from 'app/styles/global';
 import createStore from 'app/store';
+import theme from 'app/styles/theme';
 import Document from './Document';
 
 globalStyling();
@@ -26,7 +28,14 @@ server
     const serverState = store.getState();
 
     const customRenderer = (node) => {
-      const App = <Provider store={store}>{node}</Provider>;
+      const App = (
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            {node}
+          </ThemeProvider>
+        </Provider>
+      );
+
       return {
         html: renderToString(App),
         serverState,

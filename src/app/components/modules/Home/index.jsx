@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Header, Intro, Logo } from './styled';
+import Button from 'common/Button';
+import { Container, Header, Logo } from './styled';
 
 class Home extends Component {
   // - These parameters are given to the method and shown as example
@@ -14,13 +15,12 @@ class Home extends Component {
       <Container>
         <Header>
           <Logo />
-          <h2>Welcome to After.js</h2>
+          <h2>Welcome to React Prime SSR</h2>
         </Header>
-        <Intro>
-          To get started, edit <code>src/Home.js</code> or{' '}
-          <code>src/About.js</code>and save to reload.
-        </Intro>
         <Link to="/about">About</Link>
+        <div>
+          <Button>Install</Button>
+        </div>
       </Container>
     );
   }

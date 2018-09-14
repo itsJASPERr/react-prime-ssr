@@ -1,5 +1,5 @@
-# React Prime
-[![Build Status](https://travis-ci.org/sandervspl/react-prime-after.svg?branch=master)](https://travis-ci.org/sandervspl/react-prime-after)
+# React Prime SSR
+[![Build Status](https://travis-ci.com/sandervspl/react-prime-after.svg?token=Mf1aRHDDBYsUqMyNPsAz&branch=master)](https://travis-ci.com/sandervspl/react-prime-after)
 [![dependencies Status](https://david-dm.org/sandervspl/react-prime-after.svg)](https://david-dm.org/sandervspl/react-prime-after.svg)
 [![devDependencies Status](https://david-dm.org/sandervspl/react-prime-after/dev-status.svg)](https://david-dm.org/sandervspl/react-prime-after?type=dev)
 [![GitHub release](https://img.shields.io/github/release/sandervspl/react-prime-after.svg)](https://github.com/sandervspl/react-prime-after)

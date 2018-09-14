@@ -1,0 +1,55 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "babel-module": {
+        "root": ["./"],
+        "alias": {
+          "app": "./src/app",
+          "common": "./src/app/components/common",
+          "config": "./src/config",
+          "ducks": "./src/app/ducks",
+          "images": "./src/app/static/images",
+          "modules": "./src/app/components/modules",
+          "pages": "./src/app/pages",
+          "server": "./src/server",
+          "services": "./src/app/services",
+          "vectors": "./src/app/static/vectors"
+        }
+      }
+    }
+  },
+  "plugins": ["react"],
+  "globals": {
+    "__DEV__": false,
+    "__ACC__": false,
+    "__PROD__": false,
+    "__CLIENT__": false,
+    "__SERVER__": false
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/require-default-props": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-indent-props": ["error", 2],
+    "react/jsx-filename-extension": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/destructuring-assignment": 0,
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": 0,
+    "jsx-a11y/label-has-associated-control": "off",
+    "consistent-return": 0,
+    "ter-indent": [true, 2, { "SwitchCase": 1 }],
+    "max-len": 0,
+    "no-console": [2, { "allow": ["info", "error"]}],
+    "no-nested-ternary": 0,
+    "no-param-reassign": 0,
+    "import/prefer-default-export": 0,
+    "object-curly-newline": 0
+  }
+}

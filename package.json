@@ -1,6 +1,6 @@
 {
-  "name": "razzle-examples-with-afterjs",
-  "version": "2.4.0",
+  "name": "react-prime-ssr",
+  "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "start": "razzle start",

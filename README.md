@@ -14,7 +14,8 @@
 `$ npm start` (run in development mode)
 
 ## Features
-* [Server Side Rendering](https://github.com/jaredpalmer/after.js) with AfterJS
+* [Server Side Rendering with AfterJS](https://github.com/jaredpalmer/after.js)
+* [Browsersync](https://browsersync.io/)
 * [React](https://github.com/facebook/react)
 * [Redux](https://github.com/rackt/redux)
 * [Redux Thunk](https://github.com/gaearon/redux-thunk) to handle async actions

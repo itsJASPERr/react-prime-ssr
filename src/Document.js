@@ -1,7 +1,6 @@
 import React from 'react';
 import { ServerStyleSheet } from 'styled-components';
 import { AfterRoot, AfterData } from '@jaredpalmer/after';
-import serialize from 'serialize-javascript';
 
 export default class Document extends React.Component {
   static async getInitialProps({ assets, data, renderPage }) {
@@ -36,7 +35,7 @@ export default class Document extends React.Component {
           <AfterData data={data} />
           <span
             dangerouslySetInnerHTML={{
-              __html: `<script>window.__PRELOADED_STATE__ = ${serialize(serverState)}</script>`,
+              __html: `<script>window.__PRELOADED_STATE__ = ${JSON.stringify(serverState)}</script>`,
             }}
           />
           <script
